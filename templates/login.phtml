@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Barbecue Guaranteed</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-  <nav class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Barbecue Guaranteed</a>
+<?php require_once('_header_unlogged.phtml');?>
+<div class="jumbotron col-sm-6 col-sm-offset-3">
+  <h2 class="text-center">Login</h2>
+  <form class="form-horizontal" name="loginForm" method="post" action="/login">
+    <div class="form-group">
+      <label for="email" class="col-sm-4 control-label">Email</label>
+      <div class="col-sm-8">
+        <input type="email" class="form-control" id="email" placeholder="Your email">
       </div>
     </div>
-  </nav>
-
-  login
-
-  <nav class="navbar navbar-inverse navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text navbar-right">Make by <a href="http://chroda.com.br/" target="_blank" class="navbar-link">chroda</a></p>
+    <div class="form-group">
+      <label for="password" class="col-sm-4 control-label">Password</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" id="password" placeholder="Type your password">
+      </div>
     </div>
-  </nav>
-</body>
-</html>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <a href="/new-account" class="btn btn-warning">Register new account</a>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </form>
+</div>
+<?php require_once('_footer.phtml');?>

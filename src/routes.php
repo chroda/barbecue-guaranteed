@@ -2,7 +2,8 @@
 // Routes
 
 $app->get('/', function ($request, $response, $args) {
-  return $this->renderer->render($response, 'index.phtml', $args);
+  // if logged, go to dashboard, otherwise go to login
+  return $response->withStatus(200)->withHeader('Location', 'login');
 });
 
 $app->get('/dashboard', function ($request, $response, $args) {
