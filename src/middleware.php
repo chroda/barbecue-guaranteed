@@ -8,5 +8,3 @@ function pr($t){
   print_r($t);
   print '</pre>';
 }
-
-pr($_SESSION);
