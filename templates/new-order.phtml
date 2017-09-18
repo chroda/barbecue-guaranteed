@@ -1,0 +1,61 @@
+<?php require_once('_header.phtml');?>
+<div class="jumbotron">
+  <h2 class="text-center">Register new order</h2>
+  <hr/>
+  <form class="form-horizontal" name="orderForm" method="post" action="/new-order">
+    <div class="form-group">
+      <label for="company" class="col-sm-2 control-label">Select company</label>
+      <div class="col-sm-2">
+        <select class="input-sm" id="company">
+          <option value="">Select a company</option>
+          <option value="1">Company 1</option>
+          <option value="2">Company 2</option>
+          <option value="3">Company 3</option>
+        </select>
+      </div>
+      <label for="product" class="col-sm-2 control-label">Select product</label>
+      <div class="col-sm-2">
+        <select class="input-sm" id="product">
+          <option value="">Select product</option>
+          <option value="Cerveja">Cerveja</option>
+          <option value="Carne">Carne</option>
+          <option value="Pão de alho">Pão de alho</option>
+          <option value="Refrigerante">Refrigerante</option>
+          <option value="Guardanapo">Guardanapo</option>
+          <option value="Carvão">Carvão</option>
+          <option value="Alcool">Alcool</option>
+          <option value="Churrasqueira">Churrasqueira</option>
+        </select>
+      </div>
+      <div class="col-sm-2">
+        <input type="amount" class="form-control" id="amount" placeholder="Amount">
+      </div>
+      <div class="col-sm-2">
+        <a href="/#" class="btn btn-success">Add product</a>
+      </div>
+    </div>
+    <br/>
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Carvão</td>
+          <td>2</td>
+          <td><a class="btn btn-xs btn-danger" href="">X</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <button type="submit" class="btn btn-primary btn-block">Close order</button>
+      </div>
+    </div>
+  </form>
+</div>
+<?php require_once('_footer.phtml');?>
