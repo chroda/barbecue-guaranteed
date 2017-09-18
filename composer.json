@@ -10,6 +10,7 @@
   "require": {
     "php": ">=5.5.0",
     "slim/slim": "^3.1",
-    "slim/php-view": "^2.0"
+    "slim/php-view": "^2.0",
+    "ktamas77/firebase-php": "dev-master"
   }
 }
