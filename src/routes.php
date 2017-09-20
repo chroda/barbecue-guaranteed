@@ -92,6 +92,28 @@ $app->get('/my-account', function ($request, $response, $args) {
   }
   return $this->renderer->render($response, 'my-account.phtml', $args);
 });
+$app->post('/my-account', function ($request, $response, $args) {
+  if (empty($_SESSION['user'])) {
+    return $response->withStatus(200)->withHeader('Location', 'login');
+  }
+  $key_mail = str_replace('.','_',$_POST['email']);
+  if ($_POST['email'] == $_SESSION['user']){
+    $this->firebase->update( '/users/'.$key_mail,[
+      'password' => md5($_POST['password'])
+    ]);
+  } else {
+    $has_key_mail = $this->firebase->get('/users/'.$key_mail);
+    if($has_key_mail == 'null') {
+      $this->firebase->set( '/users/'.$key_mail,[
+        'email' => $_POST['email'],
+        'password' => md5($_POST['password'])
+      ]);
+      $this->firebase->delete( '/users/'.str_replace('.','_',$_SESSION['user']));
+      $_SESSION['user'] = $_POST['email'];
+    }
+  }
+  return $response->withStatus(200)->withHeader('Location', 'dashboard');
+});
 
 $app->get('/logout', function ($request, $response, $args) {
   unset($_SESSION['user']);
