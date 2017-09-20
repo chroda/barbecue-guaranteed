@@ -1,7 +1,11 @@
-# barbecue-guaranteed
+# BARBECUE-GUARANTEED
 
 This is a study case repository
 
-https://barbecue-guaranteed.herokuapp.com/
+On heroku: https://barbecue-guaranteed.herokuapp.com/
 
 ## Steps
+- login
+- my account
+- dashboard
+- products
