@@ -6,13 +6,15 @@
     <div class="form-group">
       <label for="company" class="col-sm-2 control-label">Select company</label>
       <div class="col-sm-2">
-        <select class="input-sm" id="company">
+        <select class="input-sm" id="company" name="company">
           <option value="">Select a company</option>
           <?php foreach ($companies as $key => $company): ?>
             <option value="<?=$company->cnpj;?>"><?=$company->name;?></option>
           <?php endforeach; ?>
         </select>
       </div>
+    </div>
+    <div class="form-group">
       <label for="product" class="col-sm-2 control-label">Select product</label>
       <div class="col-sm-2">
         <select class="input-sm" id="product">
@@ -28,14 +30,15 @@
         </select>
       </div>
       <div class="col-sm-2">
-        <input type="amount" class="form-control" id="amount" placeholder="Amount">
+        <input type="number" class="form-control" id="amount" placeholder="Amount">
       </div>
       <div class="col-sm-2">
-        <a href="/#" class="btn btn-success">Add product</a>
+        <button id="addProduct" class="btn btn-success">Add product</button>
       </div>
     </div>
     <br/>
-    <table class="table table-hover table-bordered">
+    <input type="hidden" name="products" />
+    <table id="list" class="table table-hover table-bordered">
       <thead>
         <tr>
           <th>Product</th>
@@ -44,11 +47,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Carvão</td>
-          <td>2</td>
-          <td><a class="btn btn-xs btn-danger" href="">X</a></td>
-        </tr>
+        
       </tbody>
     </table>
     <div class="form-group">
@@ -59,3 +58,4 @@
   </form>
 </div>
 <?php require_once('_footer.phtml');?>
+<?php require_once('__script.phtml');?>

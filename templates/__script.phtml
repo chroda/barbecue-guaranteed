@@ -1,0 +1,12 @@
+<script src="../jquery.js"></script>
+<script>
+  $('#addProduct').click(function(e){
+    e.preventDefault();
+    $('#list').append('<tr><td>'+$('#product').val()+'</td><td>'+$('#amount').val()+'</td><td><button class="btn btn-xs btn-danger" onclick="$(this).parent().parent().remove()">X</button></td></tr>');
+  });
+
+  $('form').submit(function(e){
+    e.preventDefault();
+
+  });
+</script>
