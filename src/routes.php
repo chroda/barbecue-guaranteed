@@ -84,7 +84,8 @@ $app->get('/new-order', function ($request, $response, $args) {
   if (empty($_SESSION['user'])) {
     return $response->withStatus(200)->withHeader('Location', 'login');
   }
-  return $this->renderer->render($response, 'new-order.phtml', $args);
+  $companies = (array) json_decode($this->firebase->get('/companies'));
+  return $this->renderer->render($response, 'new-order.phtml', ['companies'=>$companies]);
 });
 $app->post('/new-order', function ($request, $response, $args) {
   if (empty($_SESSION['user'])) {

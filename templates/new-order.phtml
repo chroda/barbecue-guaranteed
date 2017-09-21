@@ -8,9 +8,9 @@
       <div class="col-sm-2">
         <select class="input-sm" id="company">
           <option value="">Select a company</option>
-          <option value="1">Company 1</option>
-          <option value="2">Company 2</option>
-          <option value="3">Company 3</option>
+          <?php foreach ($companies as $key => $company): ?>
+            <option value="<?=$company->cnpj;?>"><?=$company->name;?></option>
+          <?php endforeach; ?>
         </select>
       </div>
       <label for="product" class="col-sm-2 control-label">Select product</label>
