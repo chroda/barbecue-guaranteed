@@ -70,7 +70,14 @@ $app->post('/register-company', function ($request, $response, $args) {
   if (empty($_SESSION['user'])) {
     return $response->withStatus(200)->withHeader('Location', 'login');
   }
-
+  if (is_cnpj($_POST['cnpj'])) {
+    $cnpj = preg_replace('/[^0-9]/', '', (string) $_POST['cnpj']);
+    $this->firebase->set( '/companies/'.$cnpj,[
+      'cnpj' => $cnpj,
+      'name' =>$_POST['name']
+    ]);
+  }
+  return $response->withStatus(200)->withHeader('Location', 'dashboard');
 });
 
 $app->get('/new-order', function ($request, $response, $args) {
