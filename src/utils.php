@@ -7,8 +7,7 @@ function pr($t){
   print '</pre>';
 }
 
-
-function validar_cnpj($cnpj){
+function is_cnpj($cnpj){
 	$cnpj = preg_replace('/[^0-9]/', '', (string) $cnpj);
 	if (strlen($cnpj) != 14){ return false; }
 	for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
